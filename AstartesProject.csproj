@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net472</TargetFramework>
+		<Configurations>Release;Debug</Configurations>
+		<AssemblyName>$(MSBuildProjectName)-Workshop</AssemblyName>
+		<LangVersion>latest</LangVersion>
+		<NoWarn>CS0114</NoWarn>
+	</PropertyGroup>
+	
+	<PropertyGroup>
+		<AssetBundlePath>$(ProjectDir)UnityProject - AstartesProject\content\mod.assets</AssetBundlePath>
+	</PropertyGroup>
+	
+	<ItemGroup>
+	  <Compile Remove="content\**" />
+	  <Compile Remove="UnityProject - AstartesProject\**" />
+	  <EmbeddedResource Remove="content\**" />
+	  <EmbeddedResource Remove="UnityProject - AstartesProject\**" />
+	  <None Remove="UnityProject - AstartesProject\**" />
+	</ItemGroup>
+  
+	<ItemGroup>
+	  <Folder Include="Changelogs\" />
+	  <Folder Include="Changelogs\Github" />
+	  <Folder Include="Changelogs\Workshop" />
+	</ItemGroup>
+
+	<ItemGroup>
+	<PackageReference Include="Yariazen.PlateUp.ModBuildUtilities" Version="1.12.0" />
+	<Reference Include="Controllers">
+		<HintPath>..\Libraries\PlateUp_Data\Managed\Controllers.dll</HintPath>
+	</Reference>
+	<Reference Include="KitchenLib-Workshop" Condition="'$(Configuration)'=='Workshop'">
+		<HintPath>..\Libraries\KitchenLib\KitchenLib-Workshop.dll</HintPath>
+	</Reference>
+    <Reference Include="Kitchen.Common">
+    	<HintPath>..\Libraries\PlateUp_Data\Managed\Kitchen.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Kitchen.GameData">
+    	<HintPath>..\Libraries\PlateUp_Data\Managed\Kitchen.GameData.dll</HintPath>
+    </Reference>
+    <Reference Include="KitchenMods">
+    	<HintPath>..\Libraries\PlateUp_Data\Managed\KitchenMods.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Serialization">
+    	<HintPath>..\Libraries\PlateUp_Data\Managed\Sirenix.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Entities">
+    	<HintPath>..\Libraries\PlateUp_Data\Managed\Unity.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+    	<HintPath>..\Libraries\PlateUp_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+    	<HintPath>..\Libraries\PlateUp_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+    	<HintPath>..\Libraries\PlateUp_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+    	<HintPath>..\Libraries\PlateUp_Data\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+	</ItemGroup>
+</Project>
+
